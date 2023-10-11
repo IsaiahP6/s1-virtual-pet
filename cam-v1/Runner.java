@@ -1,12 +1,18 @@
-import javax.swing.JOptionPane;
+
+import javax.swing.*;
 
 public class Runner {
     public Runner(){
         
         VirtualPet p = new VirtualPet();
-        p.exercise();
-        takeABeat(5000);
-        p.feed();
+        //p.exercise();
+        //takeABeat(5000);
+        //p.feed();
+        String a = getAnswer("how was your day?", "");
+        if(a.equals("good")){
+            p.face.setMessage("that's nice");
+            p.face.setImage("ecstatic_2");
+        }
 
     }
     public void takeABeat(int milliseconds){
@@ -16,11 +22,11 @@ public class Runner {
 
         }
     }
-    public String getAnswer(String q){
+    public String getAnswer(String q, String t){
         String s = (String)JOptionPane.showInputDialog(
             new JFrame(),
-            message:"Your Message",
-            title:"Your Title",
+            q,
+            t,
             JOptionPane.PLAIN_MESSAGE
         );
         return s;
