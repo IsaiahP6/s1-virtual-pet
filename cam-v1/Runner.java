@@ -1,8 +1,6 @@
 
 import javax.swing.*;
 
-//need to get images for each item and work out some sort of reason for the project lol******
-
 public class Runner {
     private double g;
     public Runner(){
@@ -12,14 +10,14 @@ public class Runner {
         //takeABeat(5000);
         //p.feed();
         g = 0;
-        String a = getAnswer("Would you like to help me buy groceries, I'm trying to spend under $18", "");
+        String a = getAnswer("Wanna help me buy groceries? If I spend under 18 I'll give you a prize", "");
         if(a.equals("yes")){
             p.face.setMessage("ok cool");
             p.face.setImage("happy_1");
             System.out.println();
         }
             else{
-                p.face.setMessage("too bad");
+                p.face.setMessage("too bad, I still need your help");
                 p.face.setImage("happy_1");
                 System.out.println();
             }
@@ -27,7 +25,7 @@ public class Runner {
         int x = q1("whole", "chocolate");
         if (x == 0){
             p.face.setMessage("ok, I'll buy whole milk");
-            p.face.setImage("whole_1");
+            p.face.setImage("leche_1");
             System.out.println();
             takeABeat(1500);
             p.face.setImage("happy_1");
@@ -35,19 +33,19 @@ public class Runner {
         }
         else{
             p.face.setMessage("ok, I'll buy chocolate milk");
-            p.face.setImage("choc_1");
+            p.face.setImage("chocky_1");
             System.out.println();
             takeABeat(1500);
             p.face.setImage("happy_1");
             g = g+3.15;
         }
         System.out.println(g);
-        //p.face.setMessage(""+g);
-        takeABeat(2000);
+        //p.face.setMessage("remaining money: "18-g);
+        takeABeat(2500);
         int y = q2("cocoa puffs", "lucky charms");
         if (y == 0){
             p.face.setMessage("ok, I'll buy cocoa puffs");
-            p.face.setImage("cereal_2");
+            p.face.setImage("puffs_1");
             System.out.println();
             takeABeat(1500);
             p.face.setImage("happy_1");
@@ -55,16 +53,67 @@ public class Runner {
         }
         else{
             p.face.setMessage("ok, I'll buy lucky charms");
-            p.face.setImage("cereal_3");
+            p.face.setImage("charms_1");
             System.out.println();
             takeABeat(1500);
             p.face.setImage("happy_1");
             g=g+2.45;
         }
         System.out.println(g);
-        takeABeat(2000);
-        q3("eggs", "cheese");
+        takeABeat(2500);
+        int z = q3("eggs", "cheese");
+        if (z == 0){
+            p.face.setMessage("ok, I'll buy eggs");
+            p.face.setImage("huevo_1");
+            System.out.println();
+            takeABeat(1500);
+            p.face.setImage("happy_1");
+            g=g+3.15;
+        }
+        else{
+            p.face.setMessage("ok, I'll buy cheese");
+            p.face.setImage("queso_1");
+            System.out.println();
+            takeABeat(1500);
+            p.face.setImage("happy_1");
+            g=g+2.75;
+        }
+        System.out.println(g);
+        takeABeat(2500);
+        // int w = q4("____", "____");
+        // if (w == 0){
+        //     p.face.setMessage("ok, I'll buy ___");
+        //     p.face.setImage("___");
+        //     System.out.println();
+        //     takeABeat(1500);
+        //     p.face.setImage("happy_1");
+        //     g=g+3.15;
+        // }
+        // else{
+        //     p.face.setMessage("ok, I'll buy ___");
+        //     p.face.setImage("____");
+        //     System.out.println();
+        //     takeABeat(1500);
+        //     p.face.setImage("happy_1");
+        //     g=g+2.75;
+        // }
+        // System.out.println(g);
+        // takeABeat(2500);
         
+        if (g>=18){
+            p.face.setMessage("Aw man, we spent too much, maybe next time");
+            p.face.setImage("sad");
+            System.out.println();
+        }
+        else{
+            p.face.setMessage("Yay! You spent less than $18, good job");
+            p.face.setImage("ecstatic_3");
+            System.out.println();
+            takeABeat(1500);
+            p.face.setMessage("*you have been awarded a lollipop");
+            p.face.setImage("endgamelollipop");
+            System.out.println();
+        }
     }
 
     public void takeABeat(int milliseconds){
@@ -104,13 +153,28 @@ public class Runner {
             options[1]);
             return n;
     }
-        public int q3(String a, String b){
+    public int q3(String a, String b){
         Object[] options = {a,
             b};
 
         int n = JOptionPane.showOptionDialog(
             new JFrame(),
-            "Should I buy eggs or cheese",
+            "Should I buy eggs for $3.15 or cheese for $2.75",
+            "grocery shopping",
+            JOptionPane.YES_NO_CANCEL_OPTION,
+            JOptionPane.QUESTION_MESSAGE,
+            null,
+            options,
+            options[1]);
+            return n;
+    }
+    public int q4(String a, String b){
+        Object[] options = {a,
+            b};
+
+        int n = JOptionPane.showOptionDialog(
+            new JFrame(),
+            "Should I buy ____ for ___ or _____ for ___",
             "grocery shopping",
             JOptionPane.YES_NO_CANCEL_OPTION,
             JOptionPane.QUESTION_MESSAGE,
