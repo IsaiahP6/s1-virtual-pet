@@ -1,6 +1,8 @@
 
 import javax.swing.*;
 
+//need to get images for each item and work out some sort of reason for the project lol******
+
 public class Runner {
     private double g;
     public Runner(){
@@ -59,6 +61,7 @@ public class Runner {
             p.face.setImage("happy_1");
             g=g+2.45;
         }
+        System.out.println(g);
         takeABeat(2000);
         q3("eggs", "cheese");
         
