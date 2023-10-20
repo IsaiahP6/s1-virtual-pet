@@ -102,14 +102,6 @@ public class Runner {
         if (v == 0){
             p.face.setMessage("ok, I'll buy coffee");
             p.face.setImage("coffee_1");
-        int v = q5("coffee", "chips");
-        if (v == 0){
-            p.face.setMessage("ok, I'll buy coffee");
-            p.face.setImage("___");
-            System.out.println();
-            takeABeat(1500);
-            p.face.setImage("happy_1");
-            g=g+4.20;
         }
         else{
             p.face.setMessage("ok, I'll buy chips");
@@ -143,6 +135,9 @@ public class Runner {
             p.face.setImage("endgamelollipop");
             System.out.println();
         }
+        takeABeat(1500);
+        p.face.setMessage("See you next time!");
+        p.face.setImage("joyful_3");
     }
 
     public void takeABeat(int milliseconds){
