@@ -98,9 +98,9 @@ public class Runner {
         }
         p.face.setMessage("money remaining: " + (18-g));
         takeABeat(2500);
-        int v = q5("___", "___");
-        if (w == 0){
-            p.face.setMessage("ok, I'll buy ___");
+        int v = q5("coffee", "chips");
+        if (v == 0){
+            p.face.setMessage("ok, I'll buy coffee");
             p.face.setImage("___");
             System.out.println();
             takeABeat(1500);
@@ -108,7 +108,7 @@ public class Runner {
             g=g+4.15;
         }
         else{
-            p.face.setMessage("ok, I'll buy ___");
+            p.face.setMessage("ok, I'll buy chips");
             p.face.setImage("___");
             System.out.println();
             takeABeat(1500);
@@ -210,7 +210,7 @@ public class Runner {
 
         int n = JOptionPane.showOptionDialog(
             new JFrame(),
-            "Should I buy ____ for ____ or ____ for ____",
+            "Should I buy coffee for ____ or chips for ____",
             "grocery shopping",
             JOptionPane.YES_NO_CANCEL_OPTION,
             JOptionPane.QUESTION_MESSAGE,
