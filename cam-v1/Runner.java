@@ -10,7 +10,7 @@ public class Runner {
         //takeABeat(5000);
         //p.feed();
         g = 0;
-        String a = getAnswer("Wanna help me buy groceries? If I spend under 18 I'll give you a prize", "");
+        String a = getAnswer("Wanna help me buy groceries? If I spend under $18 I'll give you a prize", "");
         if(a.equals("yes")){
             p.face.setMessage("ok cool");
             p.face.setImage("happy_1");
@@ -98,24 +98,30 @@ public class Runner {
         }
         p.face.setMessage("money remaining: " + (18-g));
         takeABeat(2500);
-        int v = q5("___", "___");
-        if (w == 0){
-            p.face.setMessage("ok, I'll buy ___");
-            p.face.setImage("___");
+        int v = q5("coffee", "chips");
+        if (v == 0){
+            p.face.setMessage("ok, I'll buy coffee");
+            p.face.setImage("coffee_1");
             System.out.println();
             takeABeat(1500);
             p.face.setImage("happy_1");
-            g=g+4.15;
+            g=g+4.20;
         }
         else{
-            p.face.setMessage("ok, I'll buy ___");
-            p.face.setImage("___");
+            p.face.setMessage("ok, I'll buy chips");
+            p.face.setImage("chips_1");
             System.out.println();
             takeABeat(1500);
             p.face.setImage("happy_1");
-            g=g+4.65;
+            g=g+4.50;
         }
-        p.face.setMessage("money remaining: " + (18-g));
+        if(g>18){
+            p.face.setMessage("Money remaining: 0");
+            System.out.println();
+        }
+        if(g<=18){
+            p.face.setMessage("money remaining: " + (18-g));
+        }
         takeABeat(2500);
         
         //endgame
@@ -129,7 +135,7 @@ public class Runner {
             p.face.setImage("ecstatic_3");
             System.out.println();
             takeABeat(1500);
-            p.face.setMessage("*you have been awarded a lollipop");
+            p.face.setMessage("*you have been awarded a lollipop*");
             p.face.setImage("endgamelollipop");
             System.out.println();
         }
@@ -210,7 +216,7 @@ public class Runner {
 
         int n = JOptionPane.showOptionDialog(
             new JFrame(),
-            "Should I buy ____ for ____ or ____ for ____",
+            "Should I buy coffee for $4.20 or chips for 4.50",
             "grocery shopping",
             JOptionPane.YES_NO_CANCEL_OPTION,
             JOptionPane.QUESTION_MESSAGE,
