@@ -102,6 +102,10 @@ public class Runner {
         if (v == 0){
             p.face.setMessage("ok, I'll buy coffee");
             p.face.setImage("coffee_1");
+        int v = q5("coffee", "chips");
+        if (v == 0){
+            p.face.setMessage("ok, I'll buy coffee");
+            p.face.setImage("___");
             System.out.println();
             takeABeat(1500);
             p.face.setImage("happy_1");
